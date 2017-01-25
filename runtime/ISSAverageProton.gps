@@ -1,0 +1,67 @@
+#################################################################################
+#
+# name: ISSAverageProton.gps
+# date: 03 Jan 16
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+# desc: SPENVIS generated GPS macro to produce differential proton flux
+#       averaged over 1 year on the ISS orbit.
+#
+#################################################################################
+
+# Define the particle type: proton
+/gps/particle proton
+
+# Define the energy distribution: SPENVIS generated differential proton
+# flux averaged over 1 year of ISS orbits. Interpolation is linear.
+#
+/gps/ene/type Arb
+/gps/hist/type arb
+#
+#                Kinetic Energy      Flux
+#                    (MeV)       (1/cm2/s/MeV)
+# -------------   ------------   -------------
+# /gps/hist/point	  0.10		 469.610000
+# /gps/hist/point	  0.15		 361.770000
+# /gps/hist/point	  0.20		 265.820000
+# /gps/hist/point	  0.30		 145.270000
+# /gps/hist/point	  0.40		 82.632000
+# /gps/hist/point	  0.50		 47.022000
+# /gps/hist/point	  0.60		 29.464000
+# /gps/hist/point	  0.70		 18.637000
+# /gps/hist/point	  1.00		 7.660800
+# /gps/hist/point	  1.50		 2.223700
+# /gps/hist/point	  2.00		 1.036800
+# /gps/hist/point	  3.00		 0.288550
+# /gps/hist/point	  4.00		 0.138090
+/gps/hist/point	  5.00		 0.076530
+/gps/hist/point	  6.00		 0.050793
+/gps/hist/point	  7.00		 0.033667
+/gps/hist/point	  10.00		 0.019220
+/gps/hist/point	  15.00		 0.010554
+/gps/hist/point	  20.00		 0.006496
+/gps/hist/point	  30.00		 0.003787
+/gps/hist/point	  40.00		 0.002955
+/gps/hist/point	  50.00		 0.002327
+/gps/hist/point	  60.00		 0.002029
+/gps/hist/point	  70.00		 0.001766
+/gps/hist/point	  100.00	 0.001106
+/gps/hist/point	  150.00	 0.000428
+/gps/hist/point	  200.00	 0.000149
+#
+# Interpolation between bins is linear
+/gps/hist/inter  Lin
+
+# Define the angular distribution: isotropic
+/gps/ang/type iso
+
+# Define the position: a cuboid surface just inside the world volume
+/gps/pos/type Surface
+/gps/pos/shape Para
+/gps/pos/halfx 2.5
+/gps/pos/halfy 2.5
+/gps/pos/halfz 6
+/gps/pos/paralp 0
+/gps/pos/parthe 0 
+/gps/pos/parphi 0 
+/gps/pos/centre 0 0 0 cm

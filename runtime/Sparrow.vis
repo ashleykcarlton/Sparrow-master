@@ -1,0 +1,50 @@
+#################################################################################
+#
+# name: Sparrow.vis
+# date: 30 Dec 15
+# auth: Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+# desc: Geant4 visualization macro specifically for use with Qt viewer
+#
+#################################################################################
+
+# Quiet autorefresh and verbosity during setup
+/vis/viewer/set/autoRefresh false
+/vis/verbose errors
+
+# Draw the geometry
+/vis/drawVolume
+
+# Specify viewing parameters
+/vis/viewer/set/viewpointThetaPhi 45 45 deg
+/vis/viewer/set/projection p
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/lineSegmentsPerCircle 100
+
+# Handle particle trajectories and sensitive detector hits
+/vis/scene/add/trajectories smooth
+/tracking/storeTrajectory 1
+/vis/scene/add/hits
+/vis/scene/endOfEventAction accumulate -1
+
+/vis/viewer/set/autoRefresh true
+/vis/verbose warnings
+
+/vis/viewer/flush
+
+# Setup the viewer menu with various buttons and options
+
+/gui/addMenu particles "Particles"
+/gui/addButton particles "Protons" "/gps/particle proton"
+/gui/addButton particles "Electrons" "/gps/particle e-"
+/gui/addButton particles "Neutrons" "/gps/particle neutron"
+/gui/addButton particles "Gamma" "/gps/particle gamma"
+
+/gui/addMenu sources "Sources"
+/gui/addButton sources "Standard (pencil proton beam parallel to +Z axis" "{standard}"
+/gui/addButton sources "Beam parallel to +Z axis" "{beamPosZ}"
+/gui/addButton sources "Beam parallel to -Z axis" "{beamNegZ}"
+/gui/addButton sources "Mono. energy/ Iso. flux" "{monoIso}"
+/gui/addButton sources "Const. energy/ Iso. flux" "{constIso}"
+/gui/addButton sources "ISS average proton" "{issProton}"
+/gui/addButton sources "ISS average electron" "{issElectron}"

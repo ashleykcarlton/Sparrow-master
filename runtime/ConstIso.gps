@@ -1,0 +1,53 @@
+##########################################################################
+#
+# name: ConstIso.gps
+# date: 02 Jan 16
+# auth: Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+#
+# desc:
+# 
+##########################################################################
+
+# Set the default particle
+/gps/particle proton
+
+# Create a particle source that launches particles from the surface of
+# a cuboid that sits just inside the world volume boundaries
+/gps/pos/type Surface
+/gps/pos/shape Para
+/gps/pos/halfx 2.5
+/gps/pos/halfy 2.5
+/gps/pos/halfz 6
+/gps/pos/paralp 0
+/gps/pos/parthe 0 
+/gps/pos/parphi 0 
+/gps/pos/centre 0 0 0 cm
+
+# Define angular isotropic flux
+/gps/ang/type iso
+
+# Define an energy histogram to provide a constant particle flux
+# as a function of incident kinetic energy
+/gps/ene/type Arb
+/gps/hist/type arb
+
+# Add point:    E(MeV)  Yield
+/gps/hist/point  10.0	 1.0
+/gps/hist/point  15.0	 1.0
+/gps/hist/point  20.0	 1.0
+/gps/hist/point  25.0	 1.0
+/gps/hist/point  30.0	 1.0
+/gps/hist/point  35.0	 1.0
+/gps/hist/point  40.0	 1.0
+/gps/hist/point  45.0	 1.0
+/gps/hist/point  50.0	 1.0
+# /gps/hist/point  55.0	 1.0
+# /gps/hist/point  60.0	 1.0
+# /gps/hist/point  65.0	 1.0
+# /gps/hist/point  70.0	 1.0
+# /gps/hist/point  75.0	 1.0
+# /gps/hist/point  80.0	 1.0
+
+# Interpolation type must be set after specification of data points
+/gps/hist/inter Lin

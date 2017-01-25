@@ -1,0 +1,32 @@
+#################################################################################
+#
+# name: MonoIso.gps
+# date: 30 Dec 15
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+#
+# desc:
+#
+#################################################################################
+#
+# Define a default particle
+/gps/particle proton
+
+# Create a particle source that launches particles from the surface of
+# a cuboid that sits just inside the world volume boundaries
+/gps/pos/type Surface
+/gps/pos/shape Para
+/gps/pos/halfx 2.5
+/gps/pos/halfy 2.5
+/gps/pos/halfz 6
+/gps/pos/paralp 0
+/gps/pos/parthe 0 
+/gps/pos/parphi 0 
+/gps/pos/centre 0 0 0 cm
+
+# Define angular isotropic flux
+/gps/ang/type iso
+
+# Define the isotropic energy
+/gps/ene/type Mono
+/gps/ene/mono 150 MeV

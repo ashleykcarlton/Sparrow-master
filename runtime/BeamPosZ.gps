@@ -1,0 +1,23 @@
+#################################################################################
+#
+# name: BeamPosZAxis.gps
+# date: 30 Dec 15
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+#
+# desc: GPS macro to establish a 2D beam of particles along the +Z axis
+#
+#################################################################################
+
+# Position
+/gps/pos/centre 0 0 -10 cm
+/gps/pos/type Plane
+/gps/pos/shape Circle
+/gps/pos/radius 10 mm
+
+# Angle 
+/gps/ang/type beam2d
+/gps/ang/sigma_x 0.0 deg
+/gps/ang/sigma_y 0.0 deg
+/gps/ang/rot1 0 1 0
+/gps/ang/rot2 1 0 0 

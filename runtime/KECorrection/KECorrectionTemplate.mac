@@ -1,0 +1,58 @@
+#################################################################################
+#
+# name: KECorrection.mac
+# date: 10 Jan 16
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+#
+# desc: Macro to be used to determine the kinetic energy correction factor,
+#       which is the difference between known incident KE and energy deposited
+#       in the detector. The difference (for particles whose range is less than
+#       the total length of material along the detectors Z-axis) is due to
+#       energy loss in the scintillator wrappings and light shield layers. A
+#       ROOT output file should be created via the /Sparrow/dataOutput/init
+#       command such that the run-level data necessary to make the correction
+#       will be produced. See the ROOT analysis script 'KECorrection.cc' in the
+#       KECorrection directory of the SparrowAnalysis GitHub repository.
+#
+#################################################################################
+
+# Correction is made assuming particle beams are incident perfectly
+# along the Z-axis of the detector for simplicity
+{standard}
+
+##########
+# Arrays #
+##########
+
+# Select the ASIM array (ID == 0) representing the west-core
+# scintillator pair and ensure energy thresholding is enabled
+
+/ASIM/array/select 0
+/ASIM/array/setThresholdType energy
+
+##########
+# Proton #
+##########
+
+/gps/particle proton
+
+/Sparrow/dataOutput/setFileName KECorrectionProton.root
+/Sparrow/dataOutput/init
+
+$$ Insert proton commands $$
+
+/Sparrow/dataOutput/write
+
+############
+# Electron #
+############
+
+/gps/particle e-
+
+/Sparrow/dataOutput/setFileName KECorrectionElectron.root
+/Sparrow/dataOutput/init
+
+$$ Insert electron commands $$
+
+/Sparrow/dataOutput/write

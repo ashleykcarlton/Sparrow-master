@@ -1,0 +1,31 @@
+#################################################################################
+#
+# name: Coincidence.mac
+# date: 31 Dec 15
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+#
+# desc: Macro to study the affect of enabling/disabling coincidence
+#       mode on the energy deposition spectra
+#
+#################################################################################
+
+# Set particle source to use isotropic flux
+{monoIso}
+
+/gps/particle proton
+/gps/ene/mono 50 MeV
+
+/ASIM/control/setCoincidenceEnabled true
+
+/ASIM/file/setName Coincidence.asim.root
+/ASIM/file/init
+/run/beamOn 10000000
+/ASIM/file/write
+
+/ASIM/control/setCoincidenceEnabled false
+
+/ASIM/file/setName NonCoincidence.asim.root
+/ASIM/file/init
+/run/beamOn 10000000
+/ASIM/file/write

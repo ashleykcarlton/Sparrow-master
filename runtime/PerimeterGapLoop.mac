@@ -1,0 +1,10 @@
+# name: PerimeterGapLoop.mac
+# date: 16 Sep 15
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+#
+# desc: Macro for looping over the perimeter gap distance
+
+/Sparrow/geometry/setPerimeterGap {gap} cm
+/run/beamOn 1000
+

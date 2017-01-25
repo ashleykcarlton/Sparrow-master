@@ -1,0 +1,67 @@
+#################################################################################
+#
+# name: ISSAverageElectron.gps
+# date: 03 Jan 16
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+# desc: SPENVIS generated GPS macro to produce differential electron flux
+#       averaged over 1 year on the ISS orbit.
+#
+#################################################################################
+
+# Define the particle type: proton
+/gps/particle e-
+
+# Define the energy distribution: SPENVIS generated differential proton
+# flux averaged over 1 year of ISS orbits. Interpolation is linear.
+#
+/gps/ene/type Arb
+/gps/hist/type arb
+#
+#                Kinetic Energy      Flux
+#                    (MeV)       (1/cm2/s/MeV)
+# -------------   ------------   -------------
+/gps/hist/point   1.000000E-01   4.696100E+02
+/gps/hist/point   1.500000E-01   3.617700E+02
+/gps/hist/point   2.000000E-01   2.658200E+02
+/gps/hist/point   3.000000E-01   1.452700E+02
+/gps/hist/point   4.000000E-01   8.263200E+01
+/gps/hist/point   5.000000E-01   4.702200E+01
+/gps/hist/point   6.000000E-01   2.946400E+01
+/gps/hist/point   7.000000E-01   1.863700E+01
+/gps/hist/point   1.000000E+00   7.660800E+00
+/gps/hist/point   1.500000E+00   2.223700E+00
+/gps/hist/point   2.000000E+00   1.036800E+00
+/gps/hist/point   3.000000E+00   2.885500E-01
+/gps/hist/point   4.000000E+00   1.380900E-01
+/gps/hist/point   5.000000E+00   7.653000E-02
+/gps/hist/point   6.000000E+00   5.079300E-02
+/gps/hist/point   7.000000E+00   3.366700E-02
+/gps/hist/point   1.000000E+01   1.922000E-02
+/gps/hist/point   1.500000E+01   1.055400E-02
+/gps/hist/point   2.000000E+01   6.496400E-03
+/gps/hist/point   3.000000E+01   3.786500E-03
+/gps/hist/point   4.000000E+01   2.954900E-03
+/gps/hist/point   5.000000E+01   2.327200E-03
+/gps/hist/point   6.000000E+01   2.028500E-03
+/gps/hist/point   7.000000E+01   1.766300E-03
+/gps/hist/point   1.000000E+02   1.105800E-03
+/gps/hist/point   1.500000E+02   4.281200E-04
+/gps/hist/point   2.000000E+02   1.492000E-04
+/gps/hist/point   3.000000E+02   0.000000E+00
+/gps/hist/point   4.000000E+02   0.000000E+00
+/gps/hist/inter  Lin
+
+# Define the angular distribution: isotropic
+/gps/ang/type iso
+
+# Define the position: a cuboid surface just inside the world volume
+/gps/pos/type Surface
+/gps/pos/shape Para
+/gps/pos/halfx 2.5
+/gps/pos/halfy 2.5
+/gps/pos/halfz 6
+/gps/pos/paralp 0
+/gps/pos/parthe 0 
+/gps/pos/parphi 0 
+/gps/pos/centre 0 0 0 cm

@@ -1,0 +1,33 @@
+# name: Sparrow.mac
+# date: 16 Sep 15
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+# desc: Standard utility macro for automating Sparrow runs
+
+{beamNegZ}
+
+/ASIM/readout/select 0
+/ASIM/readout/setEnergyBroadening true
+/ASIM/readout/setEnergyEvaluation 0.662 MeV
+/ASIM/readout/setEnergyResolution 14.0
+
+/ASIM/readout/select 1
+/ASIM/readout/setEnergyBroadening true
+/ASIM/readout/setEnergyEvaluation 0.662 MeV
+/ASIM/readout/setEnergyResolution 10.0
+
+/ASIM/readout/select 2
+/ASIM/readout/setEnergyBroadening true
+/ASIM/readout/setEnergyEvaluation 0.662 MeV
+/ASIM/readout/setEnergyResolution 10.0
+
+/ASIM/array/select 0
+/ASIM/array/setThresholdType energy
+/ASIM/array/setLowerEnergyThreshold 0 MeV
+
+/gps/ene/mono 30 MeV
+
+/ASIM/file/setName test.asim.root
+/ASIM/file/init
+/run/beamOn 50000
+/ASIM/file/write

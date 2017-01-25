@@ -1,0 +1,38 @@
+# name: PerimeterGapScan.mac
+# date: 16 Sep 15
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+#
+# desc: Macro to obtain single/double/triple hits as a function of the
+#       gap between the perimeter and core scintillators
+
+# Set coincident detection
+/Sparrow/detectors/setCoincidentReadout false
+					
+# Create run-level ROOT file		
+/Sparrow/dataOutput/setFileName PerimeterGapScan.root
+/Sparrow/dataOutput/init	
+
+# Particle source
+/gps/particle proton
+
+/gps/pos/type Plane
+/gps/pos/shape Rectangle
+/gps/pos/halfx 6 cm
+/gps/pos/halfy 6 cm
+/gps/pos/centre 0 0 10 cm
+
+/gps/ang/type iso
+/gps/ang/mintheta 0. deg
+/gps/ang/maxtheta 45. deg
+/gps/ang/minphi 0. deg
+/gps/ang/maxphi 360. deg
+
+/gps/ene/mono 30 MeV
+
+/run/beamOn 100
+
+# /control/loop runtime/PerimeterGapLoop.mac gap 0.0 4.0 0.5
+
+# Write and close the ROOT file
+/Sparrow/dataOutput/write

@@ -1,0 +1,31 @@
+# name: Sparrow.mac
+# date: 02 Jan 16
+# auth; Zach Hartwig
+# mail: hartwig@psfc.mit.edu
+# desc: Standard utility macro for automating parallel Sparrow runs
+#
+# Possible macro aliases: standard, beamPosZ, beamNegZ, monoIso,
+#                         constIso, issProton, issElectron
+
+{beamNegZ}
+/gps/ene/mono 120 MeV
+
+/ASIM/readout/select 0
+/ASIM/readout/setEnergyBroadening true
+/ASIM/readout/setEnergyEvaluation 0.662 MeV
+/ASIM/readout/setEnergyResolution 14.0
+
+/ASIM/readout/select 1
+/ASIM/readout/setEnergyBroadening true
+/ASIM/readout/setEnergyEvaluation 0.662 MeV
+/ASIM/readout/setEnergyResolution 10.0
+
+/ASIM/readout/select 2
+/ASIM/readout/setEnergyBroadening true
+/ASIM/readout/setEnergyEvaluation 0.662 MeV
+/ASIM/readout/setEnergyResolution 10.0
+
+/ASIM/file/setName test.asim.root
+/ASIM/file/init
+/MPIManager/beamOn 100000
+/ASIM/file/write
